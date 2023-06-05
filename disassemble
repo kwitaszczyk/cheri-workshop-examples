@@ -1,6 +1,0 @@
-#!/bin/sh
-
-for i in "$@"; do echo ".4byte $i"; done |
-	llvm-mc -mattr=+morello -filetype=obj |
-	objdump -D -j .text - |
-	awk 'p{print} /<\$d\.0>:/{p=1}'
